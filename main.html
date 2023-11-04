@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400;500;600;700&display=swap');
+    </style>
+    <title>RangsimanJera</title>
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <meta name="title" content="RangsimanJera | Web Portfolio">
+    <meta name="keywords" content="RangsimanJera, rangsiman, jera, rangsimanjera, portfolio, web portfolio"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="RangsimanJera | Web Portfolio"/>
+    <meta property="og:site_name" content="RangsimanJera | Web Portfolio"/>
+    <meta property=”og:url” content=”https://rangsimanjera.netlify.app”/>
+    <meta property="og:image" content="https://images2.imgbox.com/08/03/ZL4B5Muz_o.png"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="RangsimanJera | Web Portfolio"/>
+    <meta name="twitter:image" content="https://images2.imgbox.com/08/03/ZL4B5Muz_o.png"/>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://kit.fontawesome.com/34ae96190d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <main>
+        <div class="loading">
+            <svg id="svg" width="200px" height="200px" viewbox="0 15 10 40">
+                <path d="M5.68 28.64 l0 1.16 c-2.48 0 -4.52 2 -4.52 4.52 l0 5.68 l-1.16 0 l0 -11.36 l1.16 0 l0 2.2 c1.04 -1.36 2.68 -2.2 4.52 -2.2 z M7.8 45.92 l0 -17.28 l1.16 0 l0 17.28 l-1.16 0 z M6.88 48.12 c0.6 -0.6 0.92 -1.4 0.92 -2.2 l1.16 0 c0 1.08 -0.4 2.16 -1.24 3 c-1.68 1.68 -4.36 1.68 -6.04 0 l0.84 -0.8 c1.2 1.2 3.16 1.2 4.36 0 z M8.36 24 c0.68 0 1.2 0.52 1.2 1.16 s-0.52 1.16 -1.2 1.16 c-0.64 0 -1.16 -0.52 -1.16 -1.16 s0.52 -1.16 1.16 -1.16 z"></path>
+            </svg>
+            <div class="logoname">RANGSIMANJERA</div>
+        </div>
+        <div id="cursor"></div>
+        <span id="button"></span>
+        <div id="joyDiv"></div>
+        <p id="direction">&lt;- &nbsp; Scroll or use arrow keys to move &nbsp; -&gt;</p>
+        <div id="gameArea">
+            <canvas id="gameCanvas"></canvas>
+        </div>
+        <div id="fp-nav">
+            <ul>
+                <li>
+                    <div class="aboutNav navbar active" onclick="teleport(aboutLink.position.x, this)"></div>
+                </li>
+                <li>
+                    <div class="pharmacyNav navbar" onclick="teleport(pharmacyLink.position.x, this)"></div>
+                </li>
+                <li>
+                    <div class="pedestrianNav navbar" onclick="teleport(pedestrianLink.position.x, this)"></div>
+                </li>
+                <li>
+                    <div class="competitionNav navbar" onclick="teleport(competitionLink.position.x, this)"></div>
+                </li>
+                <li>
+                    <div class="activityNav navbar" onclick="teleport(activityLink.position.x, this)"></div>
+                </li>
+                <li>
+                    <div class="moreNav navbar" onclick="teleport(moreLink.position.x, this)"></div>
+                </li>
+            </ul></div>
+        <div id="nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div id="contact">
+            <a href="https://www.facebook.com/profile.php?id=100009008953216" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/jera.rangsiman/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://github.com/RangsimanJera" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+        </div>
+        <div class="menu">
+            <div id="vantaMenu"></div>
+            <div class="outContain">
+                <div class="contain">
+                    <div class="box box--0">
+                        <div class="block"><span></span></div>
+                    </div>
+                    <div class="box box--1">
+                        <div class="block"><span></span></div>
+                    </div>
+                    <div class="box box--2">
+                        <div class="block"><span></span></div>
+                    </div>
+                    <div class="box box--3">
+                        <div class="block"><span></span></div>
+                    </div>
+                    <div class="box box--4">
+                        <div class="block"><span></span></div>
+                    </div>
+                    <div class="box box--5">
+                        <div class="topic about" onclick="beforeShow('About')">about</div>
+                        <div class="block use"><span></span></div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="box box--6">
+                        <div class="topic project1" onclick="beforeShow('Project 1')">project 1</div>
+                        <div class="block use"><span></span></div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="box box--7">
+                        <div class="topic project2" onclick="beforeShow('Project 2')">project 2</div>
+                        <div class="block use"><span></span></div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="box box--8">
+                        <div class="topic competition" onclick="beforeShow('Competition')">competition</div>
+                        <div class="block use"><span></span></div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="box box--9">
+                        <div class="topic activity" onclick="beforeShow('Activity')">activity</div>
+                        <div class="block use"><span></span></div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="box box--10">
+                        <div class="topic more" onclick="beforeShow('More')">more</div>
+                        <div class="block use"><span></span></div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="box box--11">
+                        <div class="block"><span></span></div>
+                    </div>
+                    <div class="box box--12">
+                        <div class="block"><span></span></div>
+                    </div>
+                    <div class="box box--13">
+                        <div class="block"><span></span></div>
+                    </div>
+                    <div class="box box--14">
+                        <div class="block"><span></span></div>
+                    </div>
+                    <div class="box box--15">
+                        <div class="block"><span></span></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <div id="closebar">
+            <div id="closebar1"></div>
+            <div id="closebar2"></div>
+        </div>
+        <div class="content">
+        </div>
+    </main>
+
+    <script src="Sprite.js"></script>
+    <script src="Player.js"></script>
+    <script src="main.js"></script>
+    <script src="context.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js"></script>
+    <script src="joy.js"></script>
+
+    <script>
+        page.main = false
+        let isMobile = false
+        window.addEventListener("load", () => {
+            loading = document.querySelector(".loading")
+            logo = document.getElementById("svg")
+
+            setTimeout(() => {
+                loading.style.opacity = 0
+                if (!isMobile) layerFront2.switchSprite('opencutscene')
+                setTimeout(() => {
+                    page.main = true
+                    loading.style.display = "none"
+                }, 600);
+            }, 5000);
+        })
+
+        function isMobileCheck() {
+            return navigator.maxTouchPoints > 0 && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+        }
+
+        isMobile = isMobileCheck()
+        if (isMobileCheck()) window.location = "http://m-rangsimanjera.netlify.app/";
+
+        let cursor = document.getElementById("cursor");
+        let button = document.getElementById("button");
+
+        const onMouseMove = (event) => {
+            cursor.style.left = event.pageX + "px";
+            cursor.style.top = event.pageY + "px";
+            button.style.left = event.pageX + "px";
+            button.style.top = event.pageY + "px";
+        };
+
+        if (!isMobile) document.addEventListener("mousemove", onMouseMove);  
+
+        let joyDiv = document.getElementById("joyDiv")
+        joy = new JoyStick('joyDiv',{
+            title: 'joystick',
+            width: 80,
+            height: 80,
+            internalFillColor: '#fff',
+            internalLineWidth: 2,
+            internalStrokeColor: '#fff',
+            externalLineWidth: 2,
+            externalStrokeColor: 'rgba(225,225,225,0)',
+            autoReturnToCenter: true
+        });
+
+        if (isMobile) joyDiv.style.display = "flex"
+        else joyDiv.style.display = "none"
+
+        let direction = document.getElementById("direction")
+
+        let menu = document.querySelector(".menu")
+        let outContain = document.querySelector(".outContain")
+
+        menu.addEventListener("mousemove", menuMove) 
+        function menuMove(e) {
+            outContain.style.top = -e.pageY/30 + "px"
+            outContain.style.left = -e.pageX/30 + "px"      
+        }
+
+        let closebar = document.getElementById("closebar")
+        let content = document.querySelector(".content")
+        let contentMode = 1
+
+        content.addEventListener("mousemove", move) 
+        function move(e) {
+            if (contentMode === 1) {
+                report.style.top = -e.pageY/30 + "px"
+                report.style.left = -e.pageX/30 + "px"
+            } else if (contentMode === 2) {
+                gallery.style.top = -e.pageY/30 + "px"
+                gallery.style.left = -e.pageX/30 + "px"
+            }        
+        }
+
+        closebar.addEventListener('click', () => {
+            content.style.display = "none";
+            closebar.style.display = "none";
+            page.gallery = false
+            page.main = true
+            document.getElementById('fp-nav').style.display = "block";
+            if (!isMobile) joyDiv.style.display = "none"
+            button.style.visibility = "hidden"
+            button.style.opacity = 1
+            button.style.mixBlendMode = "exclusion"
+            button.innerHTML = "mouse.onLink"
+            button.style.color = "#d3c1b7"
+            button.style.fontSize = "3rem"
+            button.style.fontWeight = "bold"
+            button.style.margin = "0"
+        });
+        
+        let pic
+        let text
+        let report
+        let gallery
+
+        function dom() {
+            if (contentMode === 1) {
+                report = document.querySelector(".report")
+            } else if (contentMode === 2) {
+                gallery = document.querySelector(".gallery")
+            }  
+            pic = document.querySelectorAll(".pic")
+            text = document.querySelector(".text")
+        }   
+
+        function getTranslateValues(element) {
+            const style = window.getComputedStyle(element)
+            const matrix = style['transform'] || style.webkitTransform || style.mozTransform
+            if (matrix === 'none' || typeof matrix === 'undefined') {
+                return {
+                x: 0,
+                y: 0,
+                z: 0,
+                }
+            }
+            const matrixValues = matrix.match(/matrix.*\((.+)\)/)[1].split(', ')
+            return {
+                x: matrixValues[12],
+                y: matrixValues[13],
+                z: matrixValues[14],
+            }
+        }
+
+        let unit = "0px"
+        let blurScale = 10
+        let text2
+        let lastPic = false
+        let firstPic = true
+
+        let setContextPos = ((page) => {
+            lastPic = false
+            firstPic = true
+            contentMode = 1
+
+            unit = "-50%"
+            blurScale = 100
+            content.innerHTML = page
+            dom()
+            for (let i = 0; i < pic.length; i++) {    
+                pic[i].style.transform = `translate3d(-50%, -50%, ${(i+1) * -1007}px)`;  
+                let { x, y, z } = getTranslateValues(pic[i])
+                z = z * 1 + 100
+                blur = -z / 100
+                pic[i].style.filter = `blur(${blur}px)`
+                pic[i].style.zIndex = 999 - i
+            }
+
+            if (!isMobile) {
+                VANTA.DOTS({
+                    el: "#vanta",
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    scale: 1.00,
+                    scaleMobile: 1.00,
+                    color: 0xffffff,
+                    color2: 0xffffff,
+                    backgroundColor: 0xd3c1b7,
+                    spacing: 20.00,
+                    showLines: false
+                })
+            }
+        })
+
+        let setGalleryPos = ((page) => {
+            lastPic = false
+            firstPic = true
+            contentMode = 2
+
+            unit = "0px"
+            blurScale = 10
+            content.innerHTML = page
+            dom()
+            text.innerHTML = text2
+            for (let i = 0; i < pic.length; i++) {    
+                pic[i].style.transform = `translate3d(0px, 0px, ${(i+1) * -757}px)`;  
+                let { x, y, z } = getTranslateValues(pic[i])
+                z = z * 1 + 100
+                blur = -z / 10
+                pic[i].style.filter = `blur(${blur}px)`
+                pic[i].style.zIndex = 999 - i
+            }
+
+            if (!isMobile) {
+                VANTA.DOTS({
+                    el: "#vanta",
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    scale: 1.00,
+                    scaleMobile: 1.00,
+                    color: 0xffffff,
+                    color2: 0xffffff,
+                    backgroundColor: 0xd3c1b7,
+                    spacing: 20.00,
+                    showLines: false
+                })
+            }
+        })
+        
+        let dept = 0
+
+        function scrollDept() {
+            if(dept > 0 && !lastPic){
+                    for (let i = 0; i < pic.length; i++) {    
+                    let { x, y, z } = getTranslateValues(pic[i])
+                    z = z * 1 + 100
+                    let blur = -z / blurScale
+                    if (blur >= 100) blur = 100
+                    else if (blur <= 0) blur = 0
+                    pic[i].style.transform = `translate3d(${unit}, ${unit}, ${z}px)`;  
+                    pic[i].style.filter = `blur(${blur}px)`
+                    if (i === 0 && blur !== 0) {
+                        text.classList.remove("program")
+                        text.innerHTML = text2
+                    }
+                    else if (blur === 0) {
+                        text.classList.add("program")
+                        text.innerHTML = pic[i].getAttribute("target")
+                    }
+                    if (i === 0 && z > -1257) {
+                        firstPic = false
+                    }
+                    if (i === pic.length - 1 && blur === 0) {
+                        lastPic = true
+                    }
+                }
+            } else if (dept < 0 && !firstPic) {    
+                for (let i = 0; i < pic.length; i++) {    
+                    let { x, y, z } = getTranslateValues(pic[i])
+                    z = z * 1 - 100
+                    let blur = -z / blurScale
+                    if (blur >= 100) blur = 100
+                    else if (blur <= 0) blur = 0
+                    pic[i].style.transform = `translate3d(${unit}, ${unit}, ${z}px)`; 
+                    pic[i].style.filter = `blur(${blur}px)` 
+                    if (i === 0 && blur !== 0) {
+                        text.classList.remove("program")
+                        text.innerHTML = text2
+                    }
+                    else if (blur === 0) {
+                        text.classList.add("program")
+                        text.innerHTML = pic[i].getAttribute("target")
+                    }
+                    if (i === 0 && z <= -1257) {
+                        firstPic = true
+                    }
+                    if (i === pic.length - 1 && blur !== 0) {
+                        lastPic = false
+                    }
+                }  
+            }
+        }
+
+        document.addEventListener("wheel", function(e) {
+            if (page.gallery) {  
+                dept = e.deltaY          
+                scrollDept()
+                button.style.opacity = 0
+            }
+            if (page.main) {  
+                dept = e.deltaY 
+                if (dept > 0) {
+                    keys.ArrowLeft.pressed = false
+                    keys.ArrowRight.pressed = true
+                }
+                else if (dept < 0) {
+                    keys.ArrowRight.pressed = false
+                    keys.ArrowLeft.pressed = true
+                }
+            }
+        });
+
+        function WheelStopListener(element, callback, timeout) {
+            var handle = null;
+            var onScroll = function() {
+                if (handle) {
+                    clearTimeout(handle);
+                }
+                handle = setTimeout(callback, timeout || 200);
+            };
+            element.addEventListener('wheel', onScroll);
+            return function() {
+                element.removeEventListener('wheel', onScroll);
+            };
+        }
+        WheelStopListener(window, function() {
+            keys.ArrowRight.pressed = false
+            keys.ArrowLeft.pressed = false
+        }, 500);
+
+        slide = setInterval(function(){
+            if (page.gallery) {
+                if (joy.GetY() > 0) {
+                    dept = 100
+                }
+                else if (joy.GetY() < 0) {
+                    dept = -100
+                }
+                else {
+                    dept = 0
+                }
+                scrollDept()
+            }
+        }, 50);
+    </script>
+</body>
+</html>
