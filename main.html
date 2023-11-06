@@ -421,7 +421,7 @@
                 scrollDept()
                 button.style.opacity = 0
             }
-            if (page.main) {  
+            if (page.main && !preventInput) {  
                 dept = e.deltaY 
                 if (dept > 0) {
                     keys.ArrowLeft.pressed = false
@@ -448,8 +448,10 @@
             };
         }
         WheelStopListener(window, function() {
-            keys.ArrowRight.pressed = false
-            keys.ArrowLeft.pressed = false
+            if (!preventInput) {
+                keys.ArrowRight.pressed = false
+                keys.ArrowLeft.pressed = false
+            }
         }, 500);
 
         slide = setInterval(function(){

@@ -136,7 +136,7 @@ let nav = document.getElementById('nav-icon')
 nav.addEventListener('click', () => {
     nav.classList.toggle('open')
     joyDiv.style.display = "none"
-    if (!page.menu) {
+    if (!page.menu && !preventInput) {
         page.main = false
         page.menu = true
         VANTA.DOTS({
@@ -656,7 +656,7 @@ function animate() {
         }
     }
 
-    if (cursor.classList.value === 'button') {
+    if (cursor.classList.value === 'button' && !preventInput) {
         cursor.addEventListener('click', preShow)
     } else {
         cursor.removeEventListener('click', preShow)
